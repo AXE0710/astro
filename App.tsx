@@ -3,28 +3,28 @@ import { View, Text, TouchableOpacity, Animated, StyleSheet, Image } from 'react
 import logo from './assests/logo.png';
 
 const AstrologyApp = () => {
-  // Animation references
-  const fadeAnim = useRef(new Animated.Value(0)).current; // For fade-in (logo)
+  // Animations
+  const fadeAnim = useRef(new Animated.Value(0)).current; // fade-in
   const slideAnim = useRef(new Animated.Value(-300)).current; // Slide-in from the left
   
-  // Separate rotation animation values for each option
+  // rotation animation
   const rotateAnim1 = useRef(new Animated.Value(0)).current;
   const rotateAnim2 = useRef(new Animated.Value(0)).current;
   const rotateAnim3 = useRef(new Animated.Value(0)).current;
 
   useEffect(() => {
-    // Fade-in animation for the logo
+    // Fade-in animation 
     Animated.timing(fadeAnim, {
       toValue: 1,
       duration: 1000,
       useNativeDriver: true,
     }).start();
 
-    // Slide-in animation for the options
+    // Slide-in animation 
     Animated.timing(slideAnim, {
-      toValue: 0, // Move to the center
-      duration: 1000, // Slide-in slower for better effect
-      delay: 500, // Slide-in starts after logo fades in
+      toValue: 0, 
+      duration: 1000, 
+      delay: 500, 
       useNativeDriver: true,
     }).start();
   }, [fadeAnim, slideAnim]);
